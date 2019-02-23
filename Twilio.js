@@ -40,4 +40,4 @@ if(nameCheck.test(name) && numberCheck.test(number) && message !=='') {
 }
 })	
 
-app.listen(3002);
+app.listen(8080);
