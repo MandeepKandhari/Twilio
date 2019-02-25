@@ -1,4 +1,4 @@
 runtime: nodejs
 env: flex
-env_variables:
-  ACCOUNT_SID: 'ACa1e42038bd6424110cc43895c50750ca'
+
+
