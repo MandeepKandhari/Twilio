@@ -1,6 +1,8 @@
 const express = require('express');
-const accountSid = 'ACa1e42038bd6424110cc43895c50750ca'; 
-const authToken = 'bfb6febcfaa1bb7aac583a1275b19b20'; 
+const env = require('dotenv');
+env.config();
+const accountSid = process.env.ACCOUNT_SID; 
+const authToken = process.env.AUTH_TOKEN; 
 const client = require('twilio')(accountSid, authToken); 
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -13,8 +15,6 @@ app.use(cors());
 const PORT = process.env.PORT || 8080;
 
 app.get('/',(req,res)=>{
-  console.log('accountSid', accountSid)
-  console.log('authToken', authToken)
 	res.json('This app is working!!!')
 })
 
