@@ -1,6 +1,6 @@
 const express = require('express');
-const accountSid = 'ACa1e42038bd6424110cc43895c50750ca'; 
-const authToken = 'bfb6febcfaa1bb7aac583a1275b19b20'; 
+const accountSid = process.env.accountSid; 
+const authToken = process.env.authToken; 
 const client = require('twilio')(accountSid, authToken); 
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -10,7 +10,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
+const PORT = process.env.PORT || 8080;
+
 app.get('/',(req,res)=>{
+  console.log('accountSid', accountSid)
+  console.log('authToken', authToken)
 	res.json('This app is working!!!')
 })
 
@@ -40,4 +44,6 @@ if(nameCheck.test(name) && numberCheck.test(number) && message !=='') {
 }
 })	
 
-app.listen(8080);
+app.listen(PORT, () => {
+console.log(`App listening on port ${PORT}`);
+});
